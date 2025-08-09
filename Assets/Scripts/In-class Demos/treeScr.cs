@@ -38,12 +38,12 @@ public class treeScr : MonoBehaviour
         {
             currentTime += Time.deltaTime;
             appleTransforms[i].localScale = Vector3.one * aniCurve.Evaluate(currentTime / growthDuration);
-            yield return null;
             if (currentTime >= growthDuration)
             {
                 i++;
                 currentTime = 0;
             }
+            yield return null;
         }
         currentTime = 0;
     }

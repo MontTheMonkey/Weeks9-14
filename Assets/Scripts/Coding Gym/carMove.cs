@@ -8,12 +8,13 @@ public class carMove : MonoBehaviour
     public trafficLight trfLightScr;
     public UnityEvent trfEventStates;
     public float carSpeed = 1.5f;
-    public float carBounceSpeed = 15f;
+    public float carBounceSpeed = 45f;
     Vector2 carPos;
     bool carBounced = false;
     // Start is called before the first frame update
     void Start()
     {
+        //Spawn location
         carPos.x = -11;
         carPos.y = -3;
     }
