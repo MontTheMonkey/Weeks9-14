@@ -251,7 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed8472dd58d85445b3fe2531143df4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chimeSound: {fileID: 0}
+  chimeSound: {fileID: 347772747}
+  chimeFile: {fileID: 8300000, guid: 4fd926af1e936314c9de00ec09b1bb7e, type: 3}
 --- !u!82 &347772747
 AudioSource:
   m_ObjectHideFlags: 0

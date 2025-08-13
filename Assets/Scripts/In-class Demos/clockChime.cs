@@ -5,6 +5,7 @@ using UnityEngine;
 public class clockChime : MonoBehaviour
 {
     public AudioSource chimeSound;
+    public AudioClip chimeFile;
     // Start is called before the first frame update
     void Start()
     {

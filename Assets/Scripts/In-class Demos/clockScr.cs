@@ -14,7 +14,7 @@ public class clockScr : MonoBehaviour
     float currentHour;
     clockChime clockChimeScr;
     Coroutine clockCoroutine;
-    IEnumerator clockHandCoroutine;
+    Coroutine clockHandCoroutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,15 +50,15 @@ public class clockScr : MonoBehaviour
     {
         while (true)
         {
-            clockHandCoroutine = moveHands();
-            yield return StartCoroutine(clockHandCoroutine);
+            clockHandCoroutine = StartCoroutine(moveHands());
+            yield return clockHandCoroutine;
         }
     }
 
     public IEnumerator moveHands()
     {
         currentTime = 0f;
-        while (currentTime <= 4)
+        while (currentTime < hourDuration)
         {
             currentTime += Time.deltaTime;
             minHandTrfm.eulerAngles -= Vector3.forward * 360 * Time.deltaTime / hourDuration;
@@ -67,8 +67,13 @@ public class clockScr : MonoBehaviour
             {
                 if (clockChimeScr != null)
                 {
-                    clockChimeScr.playChime();
                     currentHour += 1;
+                    for (int i = 0; i < currentHour; i++)
+                    {
+                        clockChimeScr.playChime();
+                        yield return new WaitForSeconds(clockChimeScr.chimeFile.length);
+                        //clockChimeScr.chimeFile.length
+                    }
                     Debug.Log("The current hour is: " + currentHour);
                 }
                 else
